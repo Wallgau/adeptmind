@@ -1,0 +1,13 @@
+import React from 'react;
+
+const Toggle: React.FC = () => (
+    <button role="switch" aria-checked="true"
+      id="speakerPower" class="switch">
+  <span>off</span>
+  <span>on</span>
+</button>
+<label for="speakerPower" class="switch">Speaker power</label>
+)
+
+
+export default Toggle;
