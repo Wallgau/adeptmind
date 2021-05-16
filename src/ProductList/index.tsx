@@ -18,6 +18,7 @@ const ProductList: React.FC<ProductsListProps> = ({ selectedValue }) => {
         dispatch(productsActions.isLoading());//TODO will be move into GalleryView?
     }, [dispatch, products])
     const displayProducts = useSelector((state: ProductsReduxState) => filterProductsBySearchString(state));
+    console.log(displayProducts)
     return (
         <>
             <ul>

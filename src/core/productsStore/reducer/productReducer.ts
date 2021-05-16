@@ -39,7 +39,7 @@ const reducer: Reducer<ProductsReduxState> = (state: ProductsReduxState = defaul
         case ACTION_TYPES.SET_PAGINATION_PAGE:
             return {
                 ...state,
-                currentPage: state.paginationPage + 1,
+                currentPage: action.currentPage,
             };
     }
     return state;

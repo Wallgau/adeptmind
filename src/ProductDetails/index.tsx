@@ -6,7 +6,7 @@ import { getImage } from '../helpers';
 const ProductDetails: React.FC<ProductDetailsProps> = ({ selectedValue, product }) => {
     const imageSrc = getImage(product.image);
     return (
-        <ListContainer key={'id'}>
+        <ListContainer>
             {imageSrc && (
                 <img src={imageSrc.default} />
             )}
