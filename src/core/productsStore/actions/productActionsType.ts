@@ -10,6 +10,6 @@ export interface IsLoading extends Action {
     type: typeof ACTION_TYPES.IS_LOADING,
 }
 
-export interface IsLoading extends Action {
+export interface HasError extends Action {
     type: typeof ACTION_TYPES.HAS_ERROR,
 }

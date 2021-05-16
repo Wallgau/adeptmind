@@ -1,9 +1,7 @@
-
-import { ActionCreator } from 'redux';
-import { useDispatch } from 'react-redux';
-import { ACTION_TYPES } from '../../../constants';
 import { Product } from '../productType';
-import { ProductsSet, IsLoading } from './productActionsType';
+import { ActionCreator } from 'redux';
+import { ACTION_TYPES } from '../../../constants';
+import { IsLoading, ProductsSet, HasError } from './productActionsType'
 
 export const productsSet: ActionCreator<ProductsSet> = (data: Product[]) => {
     return {
@@ -18,9 +16,10 @@ export const isLoading: ActionCreator<IsLoading> = () => {
     };
 }
 
-export const hasError: ActionCreator<IsLoading> = () => {
+export const hasError: ActionCreator<HasError> = () => {
     return {
         type: ACTION_TYPES.HAS_ERROR,
     };
 }
+
 

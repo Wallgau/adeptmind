@@ -1,4 +1,4 @@
-import { Product } from '../../core/Products/productType';
+import { Product } from '../../core/products/productType';
 import { createSelector } from 'reselect';
 import { AppState } from '../../core';
 

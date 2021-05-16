@@ -1,6 +1,6 @@
 import React, { useEffect } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
-import * as productsActions from '../core/Products/Actions/productActions';
+import * as productsActions from '../core/products/actions/productActions';
 import { ProductsListProps } from './productList.types';
 import { filterProductsBySearchString } from '../helpers/selectors/productsSelectors';
 import { AppState } from '../core';
