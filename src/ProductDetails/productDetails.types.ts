@@ -1,4 +1,4 @@
-export interface productDetailsProps {
+export interface ProductDetailsProps {
     selectedValue: string,
     product: {
         title: string,

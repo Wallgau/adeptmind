@@ -6,7 +6,10 @@ export interface ProductsSet extends Action {
     type: typeof ACTION_TYPES.SET_ALL_PRODUCTS,
     data: Product[],
 }
+export interface IsLoading extends Action {
+    type: typeof ACTION_TYPES.IS_LOADING,
+}
 
 export interface IsLoading extends Action {
-    type: typeof ACTION_TYPES.ISLOADING,
+    type: typeof ACTION_TYPES.HAS_ERROR,
 }

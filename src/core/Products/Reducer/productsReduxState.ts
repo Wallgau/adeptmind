@@ -1,7 +1,8 @@
 import { Product } from '../productType';
 
 export interface ProductsReduxState {
-    data: Product[],
+    products: Product[],
+    hasError: boolean,
     isLoading: boolean,
     searchString: string
 }

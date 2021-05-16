@@ -14,7 +14,13 @@ export const productsSet: ActionCreator<ProductsSet> = (data: Product[]) => {
 
 export const isLoading: ActionCreator<IsLoading> = () => {
     return {
-        type: ACTION_TYPES.ISLOADING,
+        type: ACTION_TYPES.IS_LOADING,
+    };
+}
+
+export const hasError: ActionCreator<IsLoading> = () => {
+    return {
+        type: ACTION_TYPES.HAS_ERROR,
     };
 }
 

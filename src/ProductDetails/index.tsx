@@ -1,11 +1,12 @@
 import React from 'react';
-import { productDetailsProps } from './productDetails.types';
+import { ProductDetailsProps } from './productDetails.types';
+import { ListContainer } from './productDetails.styles';
 
 
 
-const ProductDetails: React.FC<productDetailsProps> = ({ selectedValue, product }) => {
+const ProductDetails: React.FC<ProductDetailsProps> = ({ selectedValue, product }) => {
     return (
-        <li key={'id'}>
+        <ListContainer key={'id'}>
             <img src={`./${product.image}`} />
             {selectedValue === 'list' && (
                 <div>
@@ -13,7 +14,7 @@ const ProductDetails: React.FC<productDetailsProps> = ({ selectedValue, product 
                     <p>{product.description}</p>
                 </div>
             )}
-        </li>
+        </ListContainer>
     )
 }
 

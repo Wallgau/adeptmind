@@ -4,6 +4,7 @@ export const PRODUCTS_DISPLAY_PROPERTIES = {
 }
 
 export const ACTION_TYPES = {
-    SET_ALL_PRODUCTS: 'set_all_products',
-    ISLOADING: 'isLoading',
+    SET_ALL_PRODUCTS: 'setAllProducts',
+    IS_LOADING: 'isLoading',
+    HAS_ERROR: 'hasError',
 }
