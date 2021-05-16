@@ -1,9 +1,10 @@
-import { Product } from '../../core/products/productType';
+import { Product } from '../../core/productsStore/productType';
 import { createSelector } from 'reselect';
-import { AppState } from '../../core';
+import { ProductsReduxState } from '../../core/productsStore/reducer/productsReduxState';
 
-const getProductsData = (state: AppState): Product[] => state.products.data;
-const getSearchString = (state: AppState): string => state.products.searchString;
+const getProductsData = (state: ProductsReduxState): Product[] => state.products;
+const getSearchString = (state: ProductsReduxState): string => state.searchString;
+
 
 export const filterProductsBySearchString = createSelector([getProductsData, getSearchString], (products, searchString) => {
     if (searchString) {

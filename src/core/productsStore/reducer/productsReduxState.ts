@@ -4,5 +4,6 @@ export interface ProductsReduxState {
     products: Product[],
     hasError: boolean,
     isLoading: boolean,
-    searchString: string
+    searchString: string,
+    currentPage: number,
 }

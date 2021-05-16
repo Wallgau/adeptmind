@@ -6,11 +6,11 @@ import Cell from './Cell';
 
 
 const Paginator: React.FC<PaginatorProps> = ({
-    activePage,
-    itemsPerPage,
-    totalItems,
-    pageNeighbours,
-    onChange,
+    activePage = 0,
+    itemsPerPage = 20,
+    totalItems = 100,
+    pageNeighbours = 1,
+    onChange = () => console.log('onChangePagination'),
 }) => {
     const totalPages = Math.max(1, Math.ceil(totalItems / itemsPerPage));
 

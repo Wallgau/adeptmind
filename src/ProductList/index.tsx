@@ -1,31 +1,42 @@
 import React, { useEffect } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
-import * as productsActions from '../core/products/actions/productActions';
+import * as productsActions from '../core/productsStore/actions/productActions';
 import { ProductsListProps } from './productList.types';
 import { filterProductsBySearchString } from '../helpers/selectors/productsSelectors';
-import { AppState } from '../core';
+import { ProductsReduxState } from '../core/productsStore/reducer/productsReduxState';
+import ProductDetails from '../ProductDetails';
+import Pagination from '../Pagination';
 
 
 
-const ProductDetails: React.FC<ProductsListProps> = ({ selectedValue }) => {
+const ProductList: React.FC<ProductsListProps> = ({ selectedValue }) => {
     const dispatch = useDispatch();
-    const products = require('data/json');
-    const displayProducts = useSelector((state: AppState) => filterProductsBySearchString(state));
-
+    const paginationPage = useSelector((state) => state.paginationPage);
+    const products = require('../data.json');
     useEffect(() => {
         dispatch(productsActions.productsSet(products));
         dispatch(productsActions.isLoading());//TODO will be move into GalleryView?
-    }, [dispatch])
+    }, [dispatch, products])
+    const displayProducts = useSelector((state: ProductsReduxState) => filterProductsBySearchString(state));
     return (
-        <ul>
-            {displayProducts.map(product => (
-                <ProductDetails
-                    product={product}
-                    selectedValue={selectedValue}
-                />
-            ))}
-        </ul>
+        <>
+            <ul>
+                {displayProducts.map(product => (
+                    <ProductDetails
+                        product={product}
+                        selectedValue={selectedValue}
+                    />
+                ))}
+            </ul>
+            <Pagination
+                activePage={paginationPage}
+                itemsPerPage={4}
+                totalItems={displayProducts.length}
+                pageNeighbours={4}
+                onChange={(value) => dispatch(productsActions.setPaginationPage(value))}
+            />
+        </>
     )
 }
 
-export default ProductDetails;
+export default ProductList;

@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { Fragment } from 'react';
 import { v4 as uuidv4 } from 'uuid';
 import { ToggleContainer, ToggleInput, ToggleLabel } from './toggle.styles';
 import { ToggleProps } from './toggle.types';
@@ -8,7 +8,7 @@ const Toggle: React.FC<ToggleProps> = ({ onChange, values, selectedValue }) => (
         {values.map((value) => {
             const radioId = `radio-${uuidv4()}`;
             return (
-                <div key={uuidv4()}>
+                <Fragment key={uuidv4()}>
                     <ToggleInput
                         type="radio"
                         id={radioId}
@@ -20,7 +20,7 @@ const Toggle: React.FC<ToggleProps> = ({ onChange, values, selectedValue }) => (
                         onChange={() => onChange(value)}
                     />
                     <ToggleLabel isSelected={selectedValue === value} className="toggleLabel" htmlFor={radioId}>{value}</ToggleLabel>
-                </div>
+                </Fragment>
             )
         })}
     </ToggleContainer>

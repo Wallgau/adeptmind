@@ -9,22 +9,24 @@ export const defaultState: ProductsReduxState = {
     isLoading: true,
     hasError: false,
     searchString: '',
+    currentPage: 0,
 };
 
 
-const reducer: Reducer<ProductsReduxState> = (state = defaultState, action) => {
+const reducer: Reducer<ProductsReduxState> = (state: ProductsReduxState = defaultState, action) => {
     switch (action.type) {
         case ACTION_TYPES.SET_ALL_PRODUCTS:
+            const { products = [] } = action;
             return {
                 ...state,
-                products: [...state.products, ...action.products],
+                products: [...state.products, ...products],
             };
         case ACTION_TYPES.IS_LOADING:
             return {
                 ...state,
                 isLoading: true,
             };
-        case ACTION_TYPES.IS_LOADING:
+        case ACTION_TYPES.SEARCH_STRING:
             return {
                 ...state,
                 searchString: action.searchString,
@@ -34,9 +36,15 @@ const reducer: Reducer<ProductsReduxState> = (state = defaultState, action) => {
                 ...state,
                 hasError: true,
             };
-        default:
-    };
-    return state
+        case ACTION_TYPES.SET_PAGINATION_PAGE:
+            return {
+                ...state,
+                currentPage: state.paginationPage + 1,
+            };
+    }
+    return state;
 }
+
+
 
 export default reducer;

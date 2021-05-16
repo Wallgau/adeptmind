@@ -1,12 +1,12 @@
 import { Product } from '../productType';
 import { ActionCreator } from 'redux';
 import { ACTION_TYPES } from '../../../constants';
-import { IsLoading, ProductsSet, HasError } from './productActionsType'
+import { IsLoading, ProductsSet, HasError, SetPaginationPage } from './productActionsType'
 
-export const productsSet: ActionCreator<ProductsSet> = (data: Product[]) => {
+export const productsSet: ActionCreator<ProductsSet> = (products: Product[]) => {
     return {
         type: ACTION_TYPES.SET_ALL_PRODUCTS,
-        data,
+        products,
     };
 }
 
@@ -22,4 +22,10 @@ export const hasError: ActionCreator<HasError> = () => {
     };
 }
 
+export const setPaginationPage: ActionCreator<SetPaginationPage> = (currentPage: number) => {
+    return {
+        type: ACTION_TYPES.SET_PAGINATION_PAGE,
+        currentPage,
+    };
+}
 
