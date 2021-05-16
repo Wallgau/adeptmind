@@ -20,5 +20,5 @@ export interface HasError extends Action {
 
 export interface SetPaginationPage extends Action {
     type: typeof ACTION_TYPES.SET_PAGINATION_PAGE,
-    currentPage: number
+    currentPage: number;
 }

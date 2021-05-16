@@ -28,4 +28,3 @@ export const setPaginationPage: ActionCreator<SetPaginationPage> = (currentPage:
         currentPage,
     };
 }
-

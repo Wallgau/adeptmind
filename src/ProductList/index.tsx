@@ -11,7 +11,7 @@ import Pagination from '../Pagination';
 
 const ProductList: React.FC<ProductsListProps> = ({ selectedValue }) => {
     const dispatch = useDispatch();
-    const paginationPage = useSelector((state) => state.paginationPage);
+    const paginationPage = useSelector((state: ProductsReduxState) => state.currentPage);
     const products = require('../data.json');
     useEffect(() => {
         dispatch(productsActions.productsSet(products));
