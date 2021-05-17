@@ -13,16 +13,19 @@ const ProductList: React.FC<ProductsListProps> = ({ selectedValue }) => {
     const dispatch = useDispatch();
     const paginationPage = useSelector((state: ProductsReduxState) => state.currentPage);
     const products = require('../data.json');
+
     useEffect(() => {
         dispatch(productsActions.productsSet(products));
-        dispatch(productsActions.isLoading());//TODO will be move into GalleryView?
+        dispatch(productsActions.isLoading(false));
     }, [dispatch, products])
+
     const displayProducts = useSelector((state: ProductsReduxState) => filterProductsBySearchString(state));
-    console.log('displayProducts', displayProducts)
+    const showItems = displayProducts.length >= (paginationPage * 4) + 4 ? displayProducts.slice(paginationPage * 4, (paginationPage * 4) + 4) : displayProducts;
+
     return (
         <>
             <ul>
-                {displayProducts.map(product => (
+                {showItems.map(product => (
                     <ProductDetails
                         product={product}
                         selectedValue={selectedValue}

@@ -16,9 +16,4 @@ describe('check Toggle display', () => {
     it('togglesValues.length should match the amount of label', () => {
         expect(toggleComponent.find('.toggleLabel').length).toEqual(toggleValues.length);
     })
-
-    // it('label value should match input value', () => {
-    //     console.log('value', toggleComponent.find('.toggleLabel'))
-    //     expect(selectedValue).toEqual(toggleValues[0]);
-    // })
 });

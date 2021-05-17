@@ -8,8 +8,9 @@ const getSearchString = (state: ProductsReduxState): string => state.searchStrin
 
 export const filterProductsBySearchString = createSelector([getProductsData, getSearchString], (products, searchString) => {
     if (searchString) {
-        console.log(searchString)
-        return products.filter((product) => product.title.toLowerCase().includes(searchString))
+        return products.filter((product) => product.title.toLowerCase().includes(searchString) ||
+            product.description.toLowerCase().includes(searchString) ||
+            product.image.toLowerCase().includes(searchString))
     }
     return products;
 })

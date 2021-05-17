@@ -9,7 +9,7 @@ export const defaultState: ProductsReduxState = {
     isLoading: true,
     hasError: false,
     searchString: '',
-    currentPage: 1,
+    currentPage: 0,
 };
 
 
