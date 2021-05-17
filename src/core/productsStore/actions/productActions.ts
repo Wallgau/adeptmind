@@ -31,6 +31,7 @@ export const setPaginationPage: ActionCreator<SetPaginationPage> = (currentPage:
 }
 
 export const setSearchString: ActionCreator<SetSearchString> = (searchString: string) => {
+    sessionStorage.setItem('searchString', searchString);
     return {
         type: ACTION_TYPES.SET_SEARCH_STRING,
         searchString,

@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useEffect } from 'react';
 import { useSelector, useDispatch } from 'react-redux';
 import Icon from '../Icon'
 import { ProductsReduxState } from '../core/productsStore/reducer/productsReduxState';
@@ -6,11 +6,12 @@ import * as productsActions from '../core/productsStore/actions/productActions';
 
 const Search = () => {
     const dispatch = useDispatch();
+    useEffect(() => {
+        dispatch(productsActions.setSearchString(sessionStorage.getItem('searchString')))
+    }, [dispatch])
     const searchString = useSelector((state: ProductsReduxState) => state.searchString)
-    const [userSearch, setUserSearch] = useState(searchString)
     const handleChange = (e: React.ChangeEvent<HTMLInputElement>) => {
         dispatch(productsActions.setSearchString(e.currentTarget.value));
-        setUserSearch(e.currentTarget.value)
     }
     const clearSearch = () => {
         dispatch(productsActions.setSearchString(''))
