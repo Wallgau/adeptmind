@@ -1,25 +1,33 @@
-import React from 'react';
+import React, { useState } from 'react';
+import { useSelector, useDispatch } from 'react-redux';
 import Icon from '../Icon'
+import { ProductsReduxState } from '../core/productsStore/reducer/productsReduxState';
+import * as productsActions from '../core/productsStore/actions/productActions';
 
-interface SearchProps {
-    handleChange: (value: string) => void;
-    searchString: string;
-    clearSearch?: () => void;
+const Search = () => {
+    const dispatch = useDispatch();
+    const searchString = useSelector((state: ProductsReduxState) => state.searchString)
+    const [userSearch, setUserSearch] = useState(searchString)
+    const handleChange = (e: React.ChangeEvent<HTMLInputElement>) => {
+        dispatch(productsActions.setSearchString(e.currentTarget.value));
+        setUserSearch(e.currentTarget.value)
+    }
+    const clearSearch = () => {
+        dispatch(productsActions.setSearchString(''))
+    }
+    return (
+        <div>
+            <input
+                value={searchString}
+                name="search"
+                onChange={(e) => handleChange(e)}
+            />
+            {searchString ? (
+                <Icon name='clear' onClick={clearSearch} />
+            ) : (
+                    <Icon name='search' />
+                )}
+        </div>
+    )
 }
-
-const Search: React.FC<SearchProps> = ({ handleChange, searchString, clearSearch }) => (
-
-    <div>
-        <input
-            defaultValue={searchString}
-            name="search"
-            onChange={(e) => handleChange(e.target.value)}
-        />
-        {searchString ? (
-            <Icon name='clear' onClick={clearSearch} />
-        ) : (
-                <Icon name='search' />
-            )}
-    </div>
-)
 export default Search;

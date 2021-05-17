@@ -1,7 +1,7 @@
 import { Product } from '../productType';
 import { ActionCreator } from 'redux';
 import { ACTION_TYPES } from '../../../constants';
-import { IsLoading, ProductsSet, HasError, SetPaginationPage } from './productActionsType'
+import { IsLoading, ProductsSet, HasError, SetPaginationPage, SetSearchString } from './productActionsType'
 
 export const productsSet: ActionCreator<ProductsSet> = (products: Product[]) => {
     return {
@@ -28,3 +28,11 @@ export const setPaginationPage: ActionCreator<SetPaginationPage> = (currentPage:
         currentPage,
     };
 }
+
+export const setSearchString: ActionCreator<SetSearchString> = (searchString: string) => {
+    return {
+        type: ACTION_TYPES.SET_SEARCH_STRING,
+        searchString,
+    };
+}
+

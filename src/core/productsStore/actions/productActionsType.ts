@@ -10,8 +10,8 @@ export interface IsLoading extends Action {
     type: typeof ACTION_TYPES.IS_LOADING,
 }
 
-export interface searchString extends Action {
-    type: typeof ACTION_TYPES.SEARCH_STRING,
+export interface SetSearchString extends Action {
+    type: typeof ACTION_TYPES.SET_SEARCH_STRING,
 }
 
 export interface HasError extends Action {

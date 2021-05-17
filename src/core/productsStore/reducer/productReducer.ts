@@ -26,7 +26,7 @@ const reducer: Reducer<ProductsReduxState> = (state: ProductsReduxState = defaul
                 ...state,
                 isLoading: true,
             };
-        case ACTION_TYPES.SEARCH_STRING:
+        case ACTION_TYPES.SET_SEARCH_STRING:
             return {
                 ...state,
                 searchString: action.searchString,
