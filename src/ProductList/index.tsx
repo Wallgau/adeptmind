@@ -33,7 +33,7 @@ const ProductList: React.FC<ProductsListProps> = ({ selectedValue }) => {
                 activePage={paginationPage}
                 itemsPerPage={4}
                 totalItems={displayProducts.length}
-                pageNeighbours={4}
+                pageNeighbours={1}
                 onChange={(value) => dispatch(productsActions.setPaginationPage(value))}
             />
         </>

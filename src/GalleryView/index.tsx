@@ -1,17 +1,19 @@
-import React from 'react';
+import React, { useState } from 'react';
 import Toggle from '../Toggle';
 import Search from '../Search';
 import ProductList from '../ProductList';
-import { GalleryViewProps } from './galleryViewProps.types';
+import { PRODUCTS_DISPLAY_PROPERTIES } from '../constants';
 
 
-const GalleryView: React.FC<GalleryViewProps> = ({ onChange, values, selectedValue }) => {
+const GalleryView = () => {
+    const [selectedValue, setSelectedValue] = useState('grid');
+    const toggleValues = [PRODUCTS_DISPLAY_PROPERTIES.GRID, PRODUCTS_DISPLAY_PROPERTIES.LIST];
     return (
         <>
             <Search />
             <Toggle
-                onChange={onChange}
-                values={values}
+                onChange={setSelectedValue}
+                values={toggleValues}
                 selectedValue={selectedValue}
             />
             <ProductList selectedValue={selectedValue} />

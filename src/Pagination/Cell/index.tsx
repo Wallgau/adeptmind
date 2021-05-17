@@ -1,11 +1,5 @@
 import React from 'react';
-
-interface CellProps extends React.HTMLAttributes<HTMLDivElement> {
-    disabled?: boolean;
-    active?: boolean;
-    onClick: () => void;
-    label: string;
-}
+import { CellProps } from './cell.types';
 
 const Cell: React.FC<CellProps> = ({
     children,
