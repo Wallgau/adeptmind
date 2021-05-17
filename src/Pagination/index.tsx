@@ -1,4 +1,4 @@
-import React, { useMemo } from 'react';
+import React, { useEffect, useMemo } from 'react';
 import { generatePagesRange } from '../helpers/pagination';
 import Icon from '../Icon';
 import { PaginatorProps } from './pagination.types';

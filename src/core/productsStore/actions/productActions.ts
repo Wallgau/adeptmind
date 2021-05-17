@@ -23,6 +23,7 @@ export const hasError: ActionCreator<HasError> = () => {
 }
 
 export const setPaginationPage: ActionCreator<SetPaginationPage> = (currentPage: number) => {
+    sessionStorage.setItem('pagination', JSON.stringify(currentPage));
     return {
         type: ACTION_TYPES.SET_PAGINATION_PAGE,
         currentPage,

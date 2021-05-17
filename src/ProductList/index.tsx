@@ -11,17 +11,20 @@ import Pagination from '../Pagination';
 
 const ProductList: React.FC<ProductsListProps> = ({ selectedValue }) => {
     const dispatch = useDispatch();
-    const paginationPage = useSelector((state: ProductsReduxState) => state.currentPage);
-    const products = require('../data.json');
+    useEffect(() => {
+        dispatch(productsActions.setPaginationPage(Number(sessionStorage.getItem('pagination'))))
+    }, [dispatch])
 
+    const products = require('../data.json');
     useEffect(() => {
         dispatch(productsActions.productsSet(products));
         dispatch(productsActions.isLoading(false));
     }, [dispatch, products])
 
+    const paginationPage = useSelector((state: ProductsReduxState) => state.currentPage);
     const displayProducts = useSelector((state: ProductsReduxState) => filterProductsBySearchString(state));
-    const showItems = displayProducts.length >= (paginationPage * 4) + 4 ? displayProducts.slice(paginationPage * 4, (paginationPage * 4) + 4) : displayProducts;
-
+    const showItems = displayProducts.length >= (paginationPage * 4) + 4 ? displayProducts.slice(paginationPage * 4, (paginationPage * 4) + 4) : displayProducts.slice(0, 4);
+    console.log(displayProducts)
     return (
         <>
             <ul>
