@@ -1,5 +1,6 @@
 import React from 'react';
 import GalleryView from './GalleryView';
+import './App.css';
 
 function App() {
   return (
