@@ -1,6 +1,20 @@
 import styled, { css } from 'styled-components';
-import { ProductDetailsProps } from './productDetails.types'
+import { ProductDetailsStyleProps } from './productDetails.types'
 
 export const ListContainer = styled.li`
-    border: 1px solid red;
+    display: flex;
+`;
+export const ImageContainer = styled.div<ProductDetailsStyleProps>`
+     ${props => {
+        if (props.imageSrc && !props.isLoaded) {
+            return css`
+                background: url(${props.imageSrc}); 
+            `
+        }
+        return css`
+        background-color: grey
+        `
+    }};
+    width: 200px;
+    height: 200px;
 `;

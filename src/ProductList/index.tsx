@@ -19,7 +19,6 @@ const ProductList: React.FC<ProductsListProps> = ({ selectedDisplay }) => {
     const products = require('../data.json');
     useEffect(() => {
         dispatch(productsActions.productsSet(products));
-        dispatch(productsActions.isLoading(false));
     }, [dispatch, products])
 
     const paginationPage = useSelector((state: ProductsReduxState) => state.currentPage);
@@ -32,7 +31,7 @@ const ProductList: React.FC<ProductsListProps> = ({ selectedDisplay }) => {
                 {itemsToDisplay.map(product => (
                     <ProductDetails
                         product={product}
-                        selectedValue={selectedDisplay}
+                        selectedDisplay={selectedDisplay}
                     />
                 ))}
             </ul>

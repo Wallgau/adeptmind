@@ -12,7 +12,7 @@ const Toggle: React.FC<ToggleProps> = ({ onChange, values, selectedDisplay }) =>
                     <ToggleInput
                         type="radio"
                         id={radioId}
-                        name="align"
+                        name="toggleInput"
                         className="toggleInput"
                         value={value}
                         aria-checked={selectedDisplay === value}

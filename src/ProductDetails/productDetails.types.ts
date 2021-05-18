@@ -1,8 +1,13 @@
 export interface ProductDetailsProps {
-    selectedValue: string,
+    selectedDisplay: string,
     product: {
         title: string,
         description: string,
         image: string
     }
+}
+
+export interface ProductDetailsStyleProps {
+    imageSrc: string,
+    isLoaded: boolean
 }
