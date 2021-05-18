@@ -3,7 +3,7 @@ import { v4 as uuidv4 } from 'uuid';
 import { ToggleContainer, ToggleInput, ToggleLabel } from './toggle.styles';
 import { ToggleProps } from './toggle.types';
 
-const Toggle: React.FC<ToggleProps> = ({ onChange, values, selectedValue }) => (
+const Toggle: React.FC<ToggleProps> = ({ onChange, values, selectedDisplay }) => (
     <ToggleContainer role='radiogroup'>
         {values.map((value) => {
             const radioId = `radio-${uuidv4()}`;
@@ -15,11 +15,11 @@ const Toggle: React.FC<ToggleProps> = ({ onChange, values, selectedValue }) => (
                         name="align"
                         className="toggleInput"
                         value={value}
-                        aria-checked={selectedValue === value}
-                        checked={selectedValue === value}
+                        aria-checked={selectedDisplay === value}
+                        checked={selectedDisplay === value}
                         onChange={() => onChange(value)}
                     />
-                    <ToggleLabel isSelected={selectedValue === value} className="toggleLabel" htmlFor={radioId}>{value}</ToggleLabel>
+                    <ToggleLabel isSelected={selectedDisplay === value} className="toggleLabel" htmlFor={radioId}>{value}</ToggleLabel>
                 </Fragment>
             )
         })}

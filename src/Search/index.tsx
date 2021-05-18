@@ -22,7 +22,10 @@ const Search = () => {
                 value={searchString}
                 name="search"
                 onChange={(e) => handleChange(e)}
+                id="searchInput"
             />
+            <label className="searchLabel" htmlFor="searchInput">search input</label>
+
             {searchString ? (
                 <Icon name='clear' onClick={clearSearch} />
             ) : (

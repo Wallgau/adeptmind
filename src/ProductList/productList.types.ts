@@ -1,3 +1,3 @@
 export interface ProductsListProps {
-    selectedValue: string,
+    selectedDisplay: string,
 }

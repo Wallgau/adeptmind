@@ -1,7 +1,7 @@
 export interface ToggleProps {
     onChange: (value: string) => void;
     values: string[];
-    selectedValue: string;
+    selectedDisplay: string;
 }
 
 export interface ToggleLabelProps {

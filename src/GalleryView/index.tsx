@@ -6,17 +6,17 @@ import { PRODUCTS_DISPLAY_PROPERTIES } from '../constants';
 
 
 const GalleryView = () => {
-    const [selectedValue, setSelectedValue] = useState('grid');
+    const [selectedDisplay, setSelectedDisplay] = useState('grid');
     const toggleValues = [PRODUCTS_DISPLAY_PROPERTIES.GRID, PRODUCTS_DISPLAY_PROPERTIES.LIST];
     return (
         <>
             <Search />
             <Toggle
-                onChange={setSelectedValue}
+                onChange={setSelectedDisplay}
                 values={toggleValues}
-                selectedValue={selectedValue}
+                selectedDisplay={selectedDisplay}
             />
-            <ProductList selectedValue={selectedValue} />
+            <ProductList selectedDisplay={selectedDisplay} />
         </>
     )
 }

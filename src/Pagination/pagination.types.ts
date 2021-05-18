@@ -1,5 +1,5 @@
 export interface PaginatorProps {
-    activePage: number;
+    currentPage: number;
     itemsPerPage: number;
     totalItems: number;
     pageNeighbours: number;
