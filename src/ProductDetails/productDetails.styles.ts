@@ -1,38 +1,11 @@
-import styled, { css, keyframes } from 'styled-components';
-import { ProductDetailsStyleProps } from './productDetails.types'
-
-
+import styled, { keyframes } from 'styled-components';
 
 export const ListContainer = styled.li`
 display: flex;
 justifiy-content: space-around;
-width: 50%;
-`;
-
-export const ImageContainer = styled.div<ProductDetailsStyleProps>` 
-        width:100%;
-        height: 100%;
-        ${props => {
-        if (props.isLoaded === true) {
-            return css`
-            background: grey;
-            img{
-            visibility: hidden;
-            z-index: -10;
-        }
-            `
-        }
-        if (props.isLoaded === false) {
-            return css`
-        img {
-            visibility: visible;
-            z-index: 10;
-            width:100%;
-            display:block;
-        }
-        `}
-    }};
-    }
+margin: 1rem;
+height: 600px;
+width: 45%;
 `;
 
 const fadeIn = keyframes`
@@ -41,18 +14,22 @@ const fadeIn = keyframes`
 `;
 
 export const StyledImage = styled.img`
-  height: 300px;
-  width: 300px;
-  display; block;
+  width: 100%;
+  display; inline-block;
   animation: ${fadeIn} 0.5s;
+  border-radius: 5px;
+
 `
 
 export const LoadWrapper = styled.div`
-  position: relative;
-  height: 300px;
-  width: 300px;
-  background-color: rgb(211,211,211);
-  border-radius: 5px;
+    display: flex;
+    justifiy-content: space-around;
+    margin: 1rem;
+    position: relative;
+    height: 600px;
+    width: 45%;
+    background-color: rgb(211,211,211);
+    border-radius: 5px;
 `
 
 export const loading = keyframes`

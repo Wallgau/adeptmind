@@ -4,7 +4,7 @@ import * as productsActions from '../core/productsStore/actions/productActions';
 import { v4 as uuidv4 } from 'uuid';
 import { ProductDetailsProps } from './productDetails.types';
 import { ProductsReduxState } from '../core/productsStore/reducer/productsReduxState';
-import { LoadWrapper, LoadingAnimation, StyledImage } from './productDetails.styles';
+import { LoadWrapper, LoadingAnimation, StyledImage, ListContainer } from './productDetails.styles';
 import { getImage } from '../helpers';
 
 const ProductDetails: React.FC<ProductDetailsProps> = ({ selectedDisplay, product }) => {
@@ -23,7 +23,9 @@ const ProductDetails: React.FC<ProductDetailsProps> = ({ selectedDisplay, produc
                         <LoadingAnimation />
                     </LoadWrapper >
                 ) : (
-                        <StyledImage src={imageSrc.default} />
+                        <ListContainer key={uuidv4()}>
+                            <StyledImage src={imageSrc.default} alt={product.title} />
+                        </ListContainer>
                     )}
         </>
 
