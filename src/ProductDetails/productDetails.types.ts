@@ -8,5 +8,5 @@ export interface ProductDetailsProps {
 }
 
 export interface ProductDetailsStyleProps {
-    isLoaded: boolean
+    selectedDisplay: string,
 }

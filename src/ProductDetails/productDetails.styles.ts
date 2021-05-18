@@ -1,11 +1,35 @@
-import styled, { keyframes } from 'styled-components';
+import styled, { keyframes, css } from 'styled-components';
+import { ProductDetailsStyleProps } from './productDetails.types';
 
-export const ListContainer = styled.li`
+export const Container = styled.li<ProductDetailsStyleProps>`
+${props => {
+        if (props.selectedDisplay === 'list') {
+            return css`
+                width: 100%
+            `
+        }
+    }};
+
 display: flex;
-justifiy-content: space-around;
+margin-bottom: 1.5rem;
+`;
+
+export const ListContainer = styled.li<ProductDetailsStyleProps>`
+display: flex;
 margin: 1rem;
-height: 600px;
-width: 45%;
+height: 100%;
+border: 1px solid #efefef;
+${props => {
+        if (props.selectedDisplay === 'list') {
+            return css`
+                width: 45%;
+            `
+        }
+        return css`
+                min-width: 45%;
+            `
+    }};
+
 `;
 
 const fadeIn = keyframes`
@@ -14,11 +38,10 @@ const fadeIn = keyframes`
 `;
 
 export const StyledImage = styled.img`
-  width: 100%;
   display; inline-block;
   animation: ${fadeIn} 0.5s;
   border-radius: 5px;
-
+  width: 100%
 `
 
 export const LoadWrapper = styled.div`
@@ -27,7 +50,6 @@ export const LoadWrapper = styled.div`
     margin: 1rem;
     position: relative;
     height: 600px;
-    width: 45%;
     background-color: rgb(211,211,211);
     border-radius: 5px;
 `

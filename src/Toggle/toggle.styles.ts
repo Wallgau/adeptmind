@@ -5,6 +5,7 @@ export const ToggleContainer = styled.div`
     display:inline-block;
     background-color: #EFEFEF;
     border-radius: 0.25rem;
+    height: fit-content;
 `;
 
 export const ToggleInput = styled.input`

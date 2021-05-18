@@ -4,30 +4,35 @@ import * as productsActions from '../core/productsStore/actions/productActions';
 import { v4 as uuidv4 } from 'uuid';
 import { ProductDetailsProps } from './productDetails.types';
 import { ProductsReduxState } from '../core/productsStore/reducer/productsReduxState';
-import { LoadWrapper, LoadingAnimation, StyledImage, ListContainer } from './productDetails.styles';
+import { LoadWrapper, LoadingAnimation, StyledImage, ListContainer, Container } from './productDetails.styles';
 import { getImage } from '../helpers';
 
 const ProductDetails: React.FC<ProductDetailsProps> = ({ selectedDisplay, product }) => {
     const dispatch = useDispatch()
     useEffect(() => {
-        setTimeout(() => dispatch(productsActions.isLoading(false)), 1500);
+        setTimeout(() => dispatch(productsActions.isLoading(false)), 200);
     }, [dispatch])
     const isLoaded = useSelector((state: ProductsReduxState) => state.isLoading);
-    console.log(isLoaded)
+    console.log(isLoaded);
     const imageSrc = getImage(product.image);
     return (
-        <>
-            {
-                isLoaded ? (
-                    <LoadWrapper>
-                        <LoadingAnimation />
-                    </LoadWrapper >
-                ) : (
-                        <ListContainer key={uuidv4()}>
-                            <StyledImage src={imageSrc.default} alt={product.title} />
-                        </ListContainer>
-                    )}
-        </>
+        <Container selectedDisplay={selectedDisplay}>
+            {isLoaded ? (
+                <LoadWrapper>
+                    <LoadingAnimation />
+                </LoadWrapper >
+            ) : (
+                    <ListContainer selectedDisplay={selectedDisplay} key={uuidv4()}>
+                        <StyledImage src={imageSrc.default} alt={product.title} />
+                    </ListContainer>
+                )}
+            {selectedDisplay === 'list' && (
+                <div>
+                    <h2>{product.title}</h2>
+                    <p>{product.description}</p>
+                </div>
+            )}
+        </Container>
 
     )
 }

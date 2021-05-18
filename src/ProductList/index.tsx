@@ -25,7 +25,7 @@ const ProductList: React.FC<ProductsListProps> = ({ selectedDisplay }) => {
     const paginationPage = useSelector((state: ProductsReduxState) => state.currentPage);
     const displayProducts = useSelector((state: ProductsReduxState) => filterProductsBySearchString(state));
     const itemsToDisplay = getCurrentPageItems(displayProducts, paginationPage, 4);
-    console.log(itemsToDisplay)
+
     return (
         <>
             <Container>

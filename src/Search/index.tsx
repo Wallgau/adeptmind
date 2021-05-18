@@ -1,6 +1,7 @@
 import React, { useEffect } from 'react';
 import { useSelector, useDispatch } from 'react-redux';
-import Icon from '../Icon'
+import Icon from '../Icon';
+import { SearchInput, SearchLabel, SearchIcon, SearchContainer } from './search.styles';
 import { ProductsReduxState } from '../core/productsStore/reducer/productsReduxState';
 import * as productsActions from '../core/productsStore/actions/productActions';
 
@@ -17,21 +18,22 @@ const Search = () => {
         dispatch(productsActions.setSearchString(''))
     }
     return (
-        <div>
-            <input
+        <SearchContainer>
+            <SearchInput
                 value={searchString}
                 name="search"
                 onChange={(e) => handleChange(e)}
                 id="searchInput"
             />
-            <label className="searchLabel" htmlFor="searchInput">search input</label>
-
-            {searchString ? (
-                <Icon name='clear' onClick={clearSearch} />
-            ) : (
-                    <Icon name='search' />
-                )}
-        </div>
+            <SearchLabel className="searchLabel" htmlFor="searchInput">search input</SearchLabel>
+            <SearchIcon>
+                {searchString ? (
+                    <Icon name='clear' onClick={clearSearch} />
+                ) : (
+                        <Icon name='search' />
+                    )}
+            </SearchIcon>
+        </SearchContainer>
     )
 }
 export default Search;
