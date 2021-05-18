@@ -8,6 +8,5 @@ export interface ProductDetailsProps {
 }
 
 export interface ProductDetailsStyleProps {
-    imageSrc: string,
     isLoaded: boolean
 }

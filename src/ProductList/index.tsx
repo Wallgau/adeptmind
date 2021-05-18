@@ -1,6 +1,7 @@
 import React, { useEffect } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import * as productsActions from '../core/productsStore/actions/productActions';
+import { Container } from './productList.styles';
 import { ProductsListProps } from './productList.types';
 import { filterProductsBySearchString } from '../helpers/selectors/productsSelectors';
 import { getCurrentPageItems } from '../helpers/pagination/index';
@@ -27,14 +28,14 @@ const ProductList: React.FC<ProductsListProps> = ({ selectedDisplay }) => {
     console.log(itemsToDisplay)
     return (
         <>
-            <ul>
+            <Container>
                 {itemsToDisplay.map(product => (
                     <ProductDetails
                         product={product}
                         selectedDisplay={selectedDisplay}
                     />
                 ))}
-            </ul>
+            </Container>
             <Pagination
                 currentPage={paginationPage}
                 itemsPerPage={4}
