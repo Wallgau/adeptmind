@@ -9,4 +9,5 @@ export const ACTION_TYPES = {
     HAS_ERROR: 'hasError',
     SET_SEARCH_STRING: 'searchString',
     SET_PAGINATION_PAGE: 'setPaginationPage',
+    SET_STORAGE_VIEW: 'setStorageView',
 }

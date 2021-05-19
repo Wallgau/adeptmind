@@ -1,10 +1,19 @@
-import styled, { keyframes, css } from 'styled-components';
+import styled, { keyframes } from 'styled-components';
 import { ProductDetailsStyleProps } from './productDetails.types';
+
 const fadeIn = keyframes`
     from { opacity: 0; }
     to   { opacity: 1; }
 `;
 
+export const loading = keyframes`
+    0%{
+        left: -45%;
+    }
+    100%{
+        left: 100%;
+    }
+`;
 
 export const LoadWrapper = styled.div`
     display: flex;
@@ -30,15 +39,6 @@ export const LoadWrapper = styled.div`
     }
 `
 
-export const loading = keyframes`
-    0%{
-            left: -45%;
-        }
-        100%{
-            left: 100%;
-        }
-`;
-
 export const LoadingAnimation = styled.div`
     position: absolute;
     left: -45%;
@@ -55,21 +55,11 @@ export const Container = styled.div<ProductDetailsStyleProps>`
     display: flex;
     flew-wrap: wrap;
     margin-bottom: 1rem;
+    text-align: left;
 
-${props => {
-        if (props.selectedDisplay === 'list') {
-            return css`
-                width: 100%;
-            `
-        } return css`
-        width: 45%;
-        `
-    }};
+    width: ${props => props.selectedDisplay === 'list' ? `100%` : `45%`};
+    //change h2 and p create styled tag
     
-    
-    h2, p {
-        text-align: left;
-    }
     h2 {
         margin: 1.5rem 3rem;
     }
@@ -82,9 +72,7 @@ ${props => {
     width: 100%;
     flex-direction: column;
     align-items: center;
-    h2, p {
     text-align: center;
-}
   }
 `;
 

@@ -2,7 +2,6 @@ import React, { useEffect } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import * as productsActions from '../core/productsStore/actions/productActions';
 import { Container } from './productList.styles';
-import { ProductsListProps } from './productList.types';
 import { filterProductsBySearchString } from '../helpers/selectors/productsSelectors';
 import { getCurrentPageItems } from '../helpers/pagination/index';
 import { ProductsReduxState } from '../core/productsStore/reducer/productsReduxState';
@@ -11,20 +10,22 @@ import Pagination from '../Pagination';
 
 
 
-const ProductList: React.FC<ProductsListProps> = ({ selectedDisplay }) => {
+const ProductList: React.FC = () => {
     const dispatch = useDispatch();
+    const paginationPage = useSelector((state: ProductsReduxState) => state.currentPage);
+    const displayProducts = useSelector((state: ProductsReduxState) => filterProductsBySearchString(state));
+    const itemsToDisplay = getCurrentPageItems(displayProducts, paginationPage, 4);
+    const products = require('../data.json');
+
     useEffect(() => {
         dispatch(productsActions.setPaginationPage(Number(sessionStorage.getItem('pagination'))))
     }, [dispatch])
 
-    const products = require('../data.json');
     useEffect(() => {
+        sessionStorage.setItem('pagination', JSON.stringify(paginationPage));
         dispatch(productsActions.productsSet(products));
-    }, [dispatch, products])
-
-    const paginationPage = useSelector((state: ProductsReduxState) => state.currentPage);
-    const displayProducts = useSelector((state: ProductsReduxState) => filterProductsBySearchString(state));
-    const itemsToDisplay = getCurrentPageItems(displayProducts, paginationPage, 4);
+    }, [dispatch, products, paginationPage])
+    console.log('itemsToDisplay', displayProducts)
 
     return (
         <>
@@ -32,7 +33,6 @@ const ProductList: React.FC<ProductsListProps> = ({ selectedDisplay }) => {
                 {itemsToDisplay.map(product => (
                     <ProductDetails
                         product={product}
-                        selectedDisplay={selectedDisplay}
                     />
                 ))}
             </Container>

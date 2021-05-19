@@ -1,7 +1,7 @@
 import { Product } from '../productType';
 import { ActionCreator } from 'redux';
 import { ACTION_TYPES } from '../../../constants';
-import { IsLoading, ProductsSet, HasError, SetPaginationPage, SetSearchString } from './productActionsType'
+import { IsLoading, ProductsSet, HasError, SetPaginationPage, SetSearchString, SetStorageView } from './productActionsType'
 
 export const productsSet: ActionCreator<ProductsSet> = (products: Product[]) => {
     return {
@@ -23,7 +23,6 @@ export const hasError: ActionCreator<HasError> = () => {
 }
 
 export const setPaginationPage: ActionCreator<SetPaginationPage> = (currentPage: number) => {
-    sessionStorage.setItem('pagination', JSON.stringify(currentPage));
     return {
         type: ACTION_TYPES.SET_PAGINATION_PAGE,
         currentPage,
@@ -31,10 +30,16 @@ export const setPaginationPage: ActionCreator<SetPaginationPage> = (currentPage:
 }
 
 export const setSearchString: ActionCreator<SetSearchString> = (searchString: string) => {
-    sessionStorage.setItem('searchString', searchString);
     return {
         type: ACTION_TYPES.SET_SEARCH_STRING,
         searchString,
+    };
+}
+
+export const setView: ActionCreator<SetStorageView> = (view: string) => {
+    return {
+        type: ACTION_TYPES.SET_STORAGE_VIEW,
+        view,
     };
 }
 

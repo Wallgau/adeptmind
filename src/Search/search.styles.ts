@@ -1,6 +1,5 @@
 import styled from 'styled-components';
 
-
 export const SearchContainer = styled.div`
     position: fixed;
     top: 0;
@@ -10,22 +9,34 @@ export const SearchContainer = styled.div`
     width: 100%;
     padding: 0.5rem;
     display: flex;
-    flex-direction: row-reverse;
+    justify-content: flex-end;
+`
+export const SearchWrapper = styled.div`
+    position: relative;
+    margin-right: 1.5rem;
 `
 
 export const SearchInput = styled.input`
     padding: 0.5rem;
-    margin-right: 1.5rem;
 `
 
 export const SearchLabel = styled.label`
-    visibility: hidden;
+    position: absolute;
+      width: 1px;
+      height: 1px;
+      padding: 0;
+      margin: -1px;
+      overflow: hidden;
+      clip: rect(0, 0, 0, 0);
+      white-space: nowrap;
+      border: 0;
+
 `
 
 export const SearchIcon = styled.div`
     position: absolute;
-    top: 0.85rem;
-    right: 2.5rem;
+    top: 0.5rem;
+    right: 0.5rem;
     display: block;
     width: 1.5rem;
 `

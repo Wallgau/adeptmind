@@ -11,7 +11,7 @@ describe('', () => {
         "title": "Adidas Men's Juventus Soccer Windbreaker Jacket",
         "description": "Lorem ipsum dolor sit amet, consectetur adipisicing elit. Distinctio dolor doloremque molestiae totam! Dicta dolore dolores et, laudantium magnam molestias qui quo quod repudiandae sequi? Adipisci deserunt doloribus quis quos."
     };
-    const productDetailsComponent = shallow<ProductDetailsProps>(<ProductDetails product={product} selectedDisplay="grid" />);
+    const productDetailsComponent = shallow<ProductDetailsProps>(<ProductDetails product={product} />);
     it('', () => {
     })
 });

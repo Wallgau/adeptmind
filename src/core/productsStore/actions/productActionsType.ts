@@ -22,3 +22,7 @@ export interface SetPaginationPage extends Action {
     type: typeof ACTION_TYPES.SET_PAGINATION_PAGE,
     currentPage: number;
 }
+
+export interface SetStorageView extends Action {
+    type: typeof ACTION_TYPES.SET_STORAGE_VIEW,
+}

@@ -6,4 +6,5 @@ export interface ProductsReduxState {
     isLoading: boolean,
     searchString: string,
     currentPage: number,
+    view: string,
 }

@@ -7,13 +7,15 @@ import { ProductsReduxState } from '../core/productsStore/reducer/productsReduxS
 import { LoadWrapper, LoadingAnimation, StyledImage, ListContainer, Container } from './productDetails.styles';
 import { getImage } from '../helpers';
 
-const ProductDetails: React.FC<ProductDetailsProps> = ({ selectedDisplay, product }) => {
+const ProductDetails: React.FC<ProductDetailsProps> = ({ product }) => {
     const dispatch = useDispatch()
+
     useEffect(() => {
         setTimeout(() => dispatch(productsActions.isLoading()), 2000);
-    }, [dispatch])
+    }, [dispatch]);
+
     const isLoaded = useSelector((state: ProductsReduxState) => state.isLoading);
-    console.log(isLoaded)
+    const selectedDisplay = useSelector((state: ProductsReduxState) => state.view);
     const imageSrc = getImage(product.image);
     return (
         <>

@@ -10,6 +10,7 @@ export const defaultState: ProductsReduxState = {
     hasError: false,
     searchString: '',
     currentPage: 0,
+    view: 'grid'
 };
 
 
@@ -40,6 +41,12 @@ const reducer: Reducer<ProductsReduxState> = (state: ProductsReduxState = defaul
             return {
                 ...state,
                 currentPage: action.currentPage,
+            };
+        case ACTION_TYPES.SET_STORAGE_VIEW:
+            console.log(action.view)
+            return {
+                ...state,
+                view: action.view,
             };
     }
     return state;
