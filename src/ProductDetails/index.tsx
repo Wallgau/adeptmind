@@ -10,30 +10,31 @@ import { getImage } from '../helpers';
 const ProductDetails: React.FC<ProductDetailsProps> = ({ selectedDisplay, product }) => {
     const dispatch = useDispatch()
     useEffect(() => {
-        setTimeout(() => dispatch(productsActions.isLoading(false)), 200);
+        setTimeout(() => dispatch(productsActions.isLoading()), 2000);
     }, [dispatch])
     const isLoaded = useSelector((state: ProductsReduxState) => state.isLoading);
-    console.log(isLoaded);
+    console.log(isLoaded)
     const imageSrc = getImage(product.image);
     return (
-        <Container selectedDisplay={selectedDisplay}>
+        <>
             {isLoaded ? (
                 <LoadWrapper>
                     <LoadingAnimation />
                 </LoadWrapper >
             ) : (
-                    <ListContainer selectedDisplay={selectedDisplay} key={uuidv4()}>
-                        <StyledImage src={imageSrc.default} alt={product.title} />
-                    </ListContainer>
+                    <Container selectedDisplay={selectedDisplay}>
+                        <ListContainer selectedDisplay={selectedDisplay} key={uuidv4()}>
+                            <StyledImage src={imageSrc.default} alt={product.title} />
+                        </ListContainer>
+                        {selectedDisplay === 'list' && (
+                            <div>
+                                <h2>{product.title}</h2>
+                                <p>{product.description}</p>
+                            </div>
+                        )}
+                    </Container>
                 )}
-            {selectedDisplay === 'list' && (
-                <div>
-                    <h2>{product.title}</h2>
-                    <p>{product.description}</p>
-                </div>
-            )}
-        </Container>
-
+        </>
     )
 }
 
