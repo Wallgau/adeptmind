@@ -19,6 +19,7 @@ const Search = () => {
         dispatch(productsActions.setPaginationPage(0));
     }
     const clearSearch = () => {
+        sessionStorage.setItem('searchString', '');
         dispatch(productsActions.setSearchString(''))
     }
     return (
