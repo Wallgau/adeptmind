@@ -40,6 +40,7 @@ describe("check Toggle display", () => {
     });
 
     it("togglesValue to be called with list", () => {
+        //@ts-ignore
         const toggleComponent = render(mount);
         toggleComponent.find('input[value="list"]').simulate("change", event);
         expect(mockDispatch).toBeCalledWith({
