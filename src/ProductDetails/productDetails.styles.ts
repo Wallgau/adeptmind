@@ -11,11 +11,17 @@ export const LoadWrapper = styled.div`
     justifiy-content: center;
     margin: 1rem;
     position: relative;
-    height: 500px;
+    height: 648px;
     width: 45%;
     z-index: -45;
     background-color: rgb(211,211,211);
     border-radius: 5px;
+
+@media (max-width: 1024px) {
+    height: 450px;
+    flex-direction: column;
+    align-items: center;
+    }
 
 @media (max-width: 768px) {
     width: 100%;
