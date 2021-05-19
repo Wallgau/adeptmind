@@ -10,8 +10,6 @@ const Toggle: React.FC<ToggleProps> = ({ values }) => {
     const dispatch = useDispatch();
     const selectedDisplay = useSelector((state: ProductsReduxState) => state.view);
 
-    console.log(selectedDisplay);
-
     useEffect(() => {
         const storageView = sessionStorage.getItem('view');
         if (storageView) dispatch(productsActions.setView(storageView))
@@ -19,7 +17,6 @@ const Toggle: React.FC<ToggleProps> = ({ values }) => {
 
     const handleChange = (value: string) => {
         sessionStorage.setItem('view', value);
-        console.log(value)
         dispatch(productsActions.setView(value))
     }
 
@@ -31,7 +28,7 @@ const Toggle: React.FC<ToggleProps> = ({ values }) => {
                     <Fragment key={uuidv4()}>
                         <ToggleInput
                             type="radio"
-                            id={radioId}
+                            id={`${radioId}`}
                             name="toggleInput"
                             className="toggleInput"
                             value={value}
