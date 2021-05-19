@@ -43,7 +43,6 @@ const reducer: Reducer<ProductsReduxState> = (state: ProductsReduxState = defaul
                 currentPage: action.currentPage,
             };
         case ACTION_TYPES.SET_STORAGE_VIEW:
-            console.log(action.view)
             return {
                 ...state,
                 view: action.view,
