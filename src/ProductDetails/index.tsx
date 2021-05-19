@@ -19,7 +19,7 @@ const ProductDetails: React.FC<ProductDetailsProps> = ({ product }) => {
     const imageSrc = getImage(product.image);
     return (
         <Container selectedDisplay={selectedDisplay}>
-            {!isLoaded ? (
+            {isLoaded ? (
                 <>
                     <ListImgLoad selectedDisplay={selectedDisplay}>
                         <LoadingAnimation />
