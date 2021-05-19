@@ -1,17 +1,43 @@
-import { ProductDetailsProps } from './productDetails.types';
-import ProductDetails from './index';
-import Enzyme, { shallow } from 'enzyme';
-import Adapter from 'enzyme-adapter-react-16';
+import React from 'react'
+import renderer from 'react-test-renderer'
+import { ListImgLoad, ListTitleLoad, ListDescriptionLoad, LoadWrapper, LoadingAnimation, StyledImage, ListContainer, Container } from './productDetails.styles'
 
-Enzyme.configure({ adapter: new Adapter() });
+test('it works', () => {
+    const tree = renderer.create(<ListDescriptionLoad />).toJSON()
+    expect(tree).toMatchSnapshot()
+})
 
-describe('', () => {
-    const product = {
-        "image": "black_jacket.jpg",
-        "title": "Adidas Men's Juventus Soccer Windbreaker Jacket",
-        "description": "Lorem ipsum dolor sit amet, consectetur adipisicing elit. Distinctio dolor doloremque molestiae totam! Dicta dolore dolores et, laudantium magnam molestias qui quo quod repudiandae sequi? Adipisci deserunt doloribus quis quos."
-    };
-    const productDetailsComponent = shallow<ProductDetailsProps>(<ProductDetails product={product} />);
-    it('', () => {
-    })
-});
+test('it works', () => {
+    const tree = renderer.create(<ListImgLoad selectedDisplay={'list'} />).toJSON()
+    expect(tree).toMatchSnapshot()
+})
+
+test('it works', () => {
+    const tree = renderer.create(<ListTitleLoad />).toJSON()
+    expect(tree).toMatchSnapshot()
+})
+
+test('it works', () => {
+    const tree = renderer.create(<LoadWrapper />).toJSON()
+    expect(tree).toMatchSnapshot()
+})
+
+test('it works', () => {
+    const tree = renderer.create(<LoadingAnimation />).toJSON()
+    expect(tree).toMatchSnapshot()
+})
+
+test('it works', () => {
+    const tree = renderer.create(<StyledImage />).toJSON()
+    expect(tree).toMatchSnapshot()
+})
+
+test('it works', () => {
+    const tree = renderer.create(<ListContainer selectedDisplay={'list'} />).toJSON()
+    expect(tree).toMatchSnapshot()
+})
+
+test('it works', () => {
+    const tree = renderer.create(<Container selectedDisplay={'list'} />).toJSON()
+    expect(tree).toMatchSnapshot()
+})

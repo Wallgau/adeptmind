@@ -19,35 +19,31 @@ const ProductDetails: React.FC<ProductDetailsProps> = ({ product }) => {
     const imageSrc = getImage(product.image);
     return (
         <Container selectedDisplay={selectedDisplay}>
-            {isLoaded ? (
-                <>
-                    <ListImgLoad selectedDisplay={selectedDisplay}>
-                        <LoadingAnimation />
-                    </ListImgLoad>
-                    {selectedDisplay === 'list' && (
-                        <LoadWrapper>
-                            <ListTitleLoad>
-                                <LoadingAnimation />
-                            </ListTitleLoad>
-                            <ListDescriptionLoad>
-                                <LoadingAnimation />
-                            </ListDescriptionLoad>
-                        </ LoadWrapper>
-                    )}
-                </>
-            ) : (
-                    <>
-                        <ListContainer selectedDisplay={selectedDisplay} key={uuidv4()}>
-                            <StyledImage src={imageSrc.default} alt={product.title} />
-                        </ListContainer>
-                        {selectedDisplay === 'list' && (
-                            <div>
-                                <h2>{product.title}</h2>
-                                <p>{product.description}</p>
-                            </div>
-                        )}
-                    </>
+            {isLoaded ? (<>
+                <ListImgLoad selectedDisplay={selectedDisplay}>
+                    <LoadingAnimation />
+                </ListImgLoad>
+                {selectedDisplay === 'list' && (
+                    <LoadWrapper>
+                        <ListTitleLoad>
+                            <LoadingAnimation />
+                        </ListTitleLoad>
+                        <ListDescriptionLoad>
+                            <LoadingAnimation />
+                        </ListDescriptionLoad>
+                    </ LoadWrapper>
                 )}
+            </>) : (<>
+                <ListContainer selectedDisplay={selectedDisplay} key={uuidv4()}>
+                    <StyledImage src={imageSrc.default} alt={product.title} />
+                </ListContainer>
+                {selectedDisplay === 'list' && (
+                    <div>
+                        <h2>{product.title}</h2>
+                        <p>{product.description}</p>
+                    </div>
+                )}
+            </>)}
         </Container >
     )
 }

@@ -1,0 +1,49 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`it works 1`] = `
+<p
+  className="sc-hKFxyN iNHhXC"
+/>
+`;
+
+exports[`it works 2`] = `
+<div
+  className="sc-gtsrHT cqNcI"
+/>
+`;
+
+exports[`it works 3`] = `
+<h2
+  className="sc-dlnjwi LVolq"
+/>
+`;
+
+exports[`it works 4`] = `
+<div
+  className="sc-bdnxRM diaxRO"
+/>
+`;
+
+exports[`it works 5`] = `
+<div
+  className="sc-eCApnc lbjCBy"
+/>
+`;
+
+exports[`it works 6`] = `
+<img
+  className="sc-iCoGMd kGRhEU"
+/>
+`;
+
+exports[`it works 7`] = `
+<li
+  className="sc-gKAaRy jlOQtp"
+/>
+`;
+
+exports[`it works 8`] = `
+<div
+  className="sc-jSFjdj jmkOZz"
+/>
+`;
