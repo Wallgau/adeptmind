@@ -31,7 +31,7 @@ const Search = () => {
                     onChange={(e) => handleChange(e)}
                     id="searchInput"
                 />
-                <SearchLabel className="searchLabel" htmlFor="searchInput">search input</SearchLabel>
+                <SearchLabel className="searchLabel" htmlFor="searchInput" aria-label="search input">search input</SearchLabel>
                 <SearchIcon>
                     {searchString ? (
                         <Icon name='clear' onClick={clearSearch} />

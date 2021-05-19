@@ -16,12 +16,19 @@ export const loading = keyframes`
 `;
 
 export const LoadWrapper = styled.div`
+   display: flex;
+   flex-direction:column;
+   height: 350px;
+   width: 90%;
+`
+
+export const ListImgLoad = styled.div<ProductDetailsStyleProps>`
     display: flex;
     justifiy-content: center;
     margin: 1rem;
     position: relative;
-    height: 648px;
-    width: 45%;
+    height: ${props => props.selectedDisplay === 'list' ? `300px` : `650px`};
+    width: ${props => props.selectedDisplay === 'list' ? `40%` : `100%`};
     z-index: -45;
     background-color: rgb(211,211,211);
     border-radius: 5px;
@@ -39,11 +46,55 @@ export const LoadWrapper = styled.div`
     }
 `
 
+export const ListTitleLoad = styled.h2`
+    display: flex;
+    justifiy-content: center;
+    margin: 1rem;
+    position: relative;
+    height: 50px;
+    width: 80%;
+    z-index: -45;
+    background-color: rgb(211,211,211);
+    border-radius: 5px;
+
+@media (max-width: 1024px) {
+    flex-direction: column;
+    align-items: center;
+    }
+
+@media (max-width: 768px) {
+    flex-direction: column;
+    align-items: center;
+    }
+`
+
+export const ListDescriptionLoad = styled.p`
+    display: flex;
+    justifiy-content: center;
+    margin: 1rem;
+    position: relative;
+    height: 100px;
+    width: 80%;
+    z-index: -45;
+    background-color: rgb(211,211,211);
+    border-radius: 5px;
+
+@media (max-width: 1024px) {
+    flex-direction: column;
+    align-items: center;
+    }
+
+@media (max-width: 768px) {
+    flex-direction: column;
+    align-items: center;
+    }
+`
+
 export const LoadingAnimation = styled.div`
     position: absolute;
     left: -45%;
     height: 100%;
-    width: 45%;
+    width: 100%;
     background-image: linear-gradient(to left, rgba(251,251,251, .05), rgba(251,251,251, .3), rgba(251,251,251, .6), rgba(251,251,251, .3), rgba(251,251,251, .05));
     background-image: -moz-linear-gradient(to left, rgba(251,251,251, .05), rgba(251,251,251, .3), rgba(251,251,251, .6), rgba(251,251,251, .3), rgba(251,251,251, .05));
     background-image: -webkit-linear-gradient(to left, rgba(251,251,251, .05), rgba(251,251,251, .3), rgba(251,251,251, .6), rgba(251,251,251, .3), rgba(251,251,251, .05));
@@ -58,7 +109,6 @@ export const Container = styled.div<ProductDetailsStyleProps>`
     text-align: left;
 
     width: ${props => props.selectedDisplay === 'list' ? `100%` : `45%`};
-    //change h2 and p create styled tag
     
     h2 {
         margin: 1.5rem 3rem;

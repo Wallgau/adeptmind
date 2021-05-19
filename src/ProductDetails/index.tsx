@@ -4,7 +4,7 @@ import * as productsActions from '../core/productsStore/actions/productActions';
 import { v4 as uuidv4 } from 'uuid';
 import { ProductDetailsProps } from './productDetails.types';
 import { ProductsReduxState } from '../core/productsStore/reducer/productsReduxState';
-import { LoadWrapper, LoadingAnimation, StyledImage, ListContainer, Container } from './productDetails.styles';
+import { ListImgLoad, ListTitleLoad, ListDescriptionLoad, LoadWrapper, LoadingAnimation, StyledImage, ListContainer, Container } from './productDetails.styles';
 import { getImage } from '../helpers';
 
 const ProductDetails: React.FC<ProductDetailsProps> = ({ product }) => {
@@ -18,13 +18,25 @@ const ProductDetails: React.FC<ProductDetailsProps> = ({ product }) => {
     const selectedDisplay = useSelector((state: ProductsReduxState) => state.view);
     const imageSrc = getImage(product.image);
     return (
-        <>
-            {isLoaded ? (
-                <LoadWrapper>
-                    <LoadingAnimation />
-                </LoadWrapper >
+        <Container selectedDisplay={selectedDisplay}>
+            {!isLoaded ? (
+                <>
+                    <ListImgLoad selectedDisplay={selectedDisplay}>
+                        <LoadingAnimation />
+                    </ListImgLoad>
+                    {selectedDisplay === 'list' && (
+                        <LoadWrapper>
+                            <ListTitleLoad>
+                                <LoadingAnimation />
+                            </ListTitleLoad>
+                            <ListDescriptionLoad>
+                                <LoadingAnimation />
+                            </ListDescriptionLoad>
+                        </ LoadWrapper>
+                    )}
+                </>
             ) : (
-                    <Container selectedDisplay={selectedDisplay}>
+                    <>
                         <ListContainer selectedDisplay={selectedDisplay} key={uuidv4()}>
                             <StyledImage src={imageSrc.default} alt={product.title} />
                         </ListContainer>
@@ -34,9 +46,9 @@ const ProductDetails: React.FC<ProductDetailsProps> = ({ product }) => {
                                 <p>{product.description}</p>
                             </div>
                         )}
-                    </Container>
+                    </>
                 )}
-        </>
+        </Container >
     )
 }
 
