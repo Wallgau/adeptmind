@@ -20,7 +20,7 @@ const reducer: Reducer<ProductsReduxState> = (state: ProductsReduxState = defaul
             const { products = [] } = action;
             return {
                 ...state,
-                products: [...state.products, ...products],
+                products: [...products],
             };
         case ACTION_TYPES.IS_LOADING:
             return {

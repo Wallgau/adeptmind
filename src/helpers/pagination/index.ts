@@ -7,11 +7,11 @@ export const generateRange = (from: number, to: number): number[] => [...new Arr
 /**
  * Generates array of pages to display in pagination
  * @param totalPages – total amount of pages in pagination
- * @param activePage – current selected page
+ * @param currentPage – current selected page
  * @param displayPages – maximum amount of page neighbours to display around the active page
  * @returns array of pages to display, like [0, 1, 2, 3]
  */
-export const generatePagesRange = (totalPages: number, activePage: number, displayPages: number): number[] => {
+export const generatePagesRange = (totalPages: number, currentPage: number, displayPages: number): number[] => {
     for (let i = 0; i < totalPages; i += 1) {
         const startPage = i;
         const endPage = Math.min(i + displayPages, totalPages - 1);
@@ -19,7 +19,7 @@ export const generatePagesRange = (totalPages: number, activePage: number, displ
         const middlePage = (endPage + startPage) / 2;
         const lastPage = totalPages - 1;
 
-        if (activePage <= middlePage) {
+        if (currentPage <= middlePage) {
             return generateRange(startPage, endPage);
         }
 

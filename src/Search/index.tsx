@@ -9,7 +9,6 @@ const Search = () => {
     const dispatch = useDispatch();
     useEffect(() => {
         dispatch(productsActions.setSearchString(sessionStorage.getItem('searchString')))
-        dispatch(productsActions.setPaginationPage(0));
     }, [dispatch])
 
     const searchString = useSelector((state: ProductsReduxState) => state.searchString);
@@ -17,6 +16,7 @@ const Search = () => {
     const handleChange = (e: React.ChangeEvent<HTMLInputElement>) => {
         sessionStorage.setItem('searchString', searchString);
         dispatch(productsActions.setSearchString(e.currentTarget.value));
+        dispatch(productsActions.setPaginationPage(0));
     }
     const clearSearch = () => {
         dispatch(productsActions.setSearchString(''))

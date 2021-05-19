@@ -25,7 +25,6 @@ const ProductList: React.FC = () => {
         sessionStorage.setItem('pagination', JSON.stringify(paginationPage));
         dispatch(productsActions.productsSet(products));
     }, [dispatch, products, paginationPage])
-    console.log('itemsToDisplay', displayProducts)
 
     return (
         <>
