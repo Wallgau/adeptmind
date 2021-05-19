@@ -1,7 +1,8 @@
-import React, { useEffect, useMemo } from 'react';
+import React, { useMemo } from 'react';
 import { generatePagesRange } from '../helpers/pagination';
 import Icon from '../Icon';
 import { PaginatorProps } from './pagination.types';
+import { PaginationContainer } from './pagination.styles';
 import Cell from './Cell';
 
 
@@ -20,7 +21,7 @@ const Paginator: React.FC<PaginatorProps> = ({
     );
 
     return totalPages > 1 ? (
-        <div>
+        <PaginationContainer>
             <div>
                 <Cell
                     disabled={currentPage === 0}
@@ -67,7 +68,7 @@ const Paginator: React.FC<PaginatorProps> = ({
                     <Icon name="paginationLast" />
                 </Cell>
             </div>
-        </div >
+        </PaginationContainer>
     ) : null;
 };
 

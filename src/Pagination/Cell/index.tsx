@@ -1,5 +1,6 @@
 import React from 'react';
 import { CellProps } from './cell.types';
+import { Button } from './cell.styles';
 
 const Cell: React.FC<CellProps> = ({
     children,
@@ -8,14 +9,14 @@ const Cell: React.FC<CellProps> = ({
     onClick,
     label,
 }) => (
-    <button
+    <Button
         type="button"
         disabled={disabled || active}
         onClick={onClick}
         aria-label={label}
     >
         {children}
-    </button>
+    </Button>
 );
 
 export default Cell;
